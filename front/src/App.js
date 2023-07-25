@@ -21,8 +21,9 @@ const App = () => {
     console.log(modifiedText);
   }, [modifiedText])
 
-  const handleContinueToThirdPage = (SecondModifiedText) => {
+  const handleContinueToThirdPage = (SecondModifiedText, analysisResult) => {
     setModifiedText(SecondModifiedText);
+    setAnalysisResult(analysisResult);
     setCurrentPage('third');
   };
 
