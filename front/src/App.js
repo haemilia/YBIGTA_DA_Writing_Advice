@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import FirstPage from './pages/FirstPage';
 import SecondPage from './pages/SecondPage';
 import ThirdPage from './pages/ThirdPage';
@@ -10,14 +10,19 @@ const App = () => {
   const [modifiedText, setModifiedText] = useState('');
   const [analysisResult, setAnalysisResult] = useState('');
 
-  const handleContinueToSecondPage = (category, inputText) => {
-    setSelectedCategory(category);
-    setText(inputText);
+  const handleContinueToSecondPage = (selectedCategory, text, FirstModifiedText) => {
+    setSelectedCategory(selectedCategory);
+    setText(text);
+    setModifiedText(FirstModifiedText);
     setCurrentPage('second');
-  };
+  }; 
 
-  const handleContinueToThirdPage = (modifiedText) => {
-    setModifiedText(modifiedText);
+  useEffect(() => {
+    console.log(modifiedText);
+  }, [modifiedText])
+
+  const handleContinueToThirdPage = (SecondModifiedText) => {
+    setModifiedText(SecondModifiedText);
     setCurrentPage('third');
   };
 
@@ -38,6 +43,7 @@ const App = () => {
           <SecondPage
             category={selectedCategory}
             text={text}
+            modifiedText={modifiedText}
             onContinue={handleContinueToThirdPage}
           />
         );
@@ -47,7 +53,7 @@ const App = () => {
             originalText={text}
             modifiedText={modifiedText}
             analysisResult={analysisResult}
-            onReset={handleReset} // 데이터를 리셋하는 함수를 전달합니다.
+            onReset={handleReset}
           />
         );
       default:
