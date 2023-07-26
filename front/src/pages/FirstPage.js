@@ -17,14 +17,12 @@ const FirstPage = ({ onContinue }) => {
 
   const handleContinue = () => {
     if (selectedCategory && text.trim().length > 0) {
-      // Axios를 사용하여 Flask 서버로 데이터를 전송합니다.
-      // 이때, 실제 서버의 주소로 수정해야 합니다.
-      axios.post('http://127.0.0.1:5000/react_to_flask', {
+      axios.post('http://127.0.0.1:5000/react_to_flask_1', {
         category: selectedCategory,
         text: text,
       },{
         headers: {
-          'Content-Type': 'application/json' // JSON 형식으로 데이터 전송 설정
+          'Content-Type': 'application/json'
         }
       })
       
@@ -32,12 +30,10 @@ const FirstPage = ({ onContinue }) => {
 
         console.log(response.data);
 
-        // 서버로부터 처리된 텍스트를 전달받습니다.
         const FirstModifiedText = response.data.modifiedText;
 
         console.log(FirstModifiedText)
 
-        // 다음 페이지로 이동하며, 처리된 텍스트도 함께 전달합니다.
         onContinue(selectedCategory, text, FirstModifiedText);
       })
       .catch((error) => {

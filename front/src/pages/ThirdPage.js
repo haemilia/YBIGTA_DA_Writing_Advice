@@ -1,8 +1,12 @@
 import React from 'react';
 
-const ThirdPage = ({ originalText, modifiedText, analysisResult, onReset }) => {
-  const handleReset = () => {
-    onReset();
+const ThirdPage = ({ originalText, modifiedText, analysisResult, onContinue, onGoBack }) => {
+  const handleGoBack = () => {
+    onGoBack();
+  };
+  
+  const handleContinue = () => {
+    onContinue();
   };
 
   return (
@@ -14,7 +18,8 @@ const ThirdPage = ({ originalText, modifiedText, analysisResult, onReset }) => {
       <div>{modifiedText}</div>
       <h3>Analysis Result:</h3>
       <div>{analysisResult}</div>
-      <button onClick={handleReset}>reset</button>
+      <button onClick={handleGoBack}>back</button>
+      <button onClick={handleContinue}>more information</button>
     </div>
   );
 };
