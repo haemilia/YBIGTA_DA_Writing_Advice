@@ -100,16 +100,13 @@ def get_pos_freq(articles: list[list]) -> dict:
     return pos_freq
 
 def calRelPosition(sentence_pos, num_token_sentences):
-
     for i, sentence in enumerate(sentence_pos):
         pos = np.array(sentence)
         result = {}
         for tag in set(pos):
             indices = np.where(pos == tag)
-            result[tag] = (indices/num_token_sentences[i]).tolist()
-           
+            result[tag] = (indices/num_token_sentences[i]).tolist()         
     return result
-
 def get_more_features(data, all_analysis):
     all_analysis['token_variety'] = []
     all_analysis['rel_position'] = []
