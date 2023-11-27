@@ -6,6 +6,7 @@ Members: 이해인(haemilia), 김하영(kae1128), 오동하(Oh-dongha), 정병�
 
 ## Explanation & Process
 - Analyzed news articles, paper abstracts, novels, and essays written in Korean.
+
 |                 | Method of Data Acquirement |
 |-----------------|----------------------------|
 | News Articles   | Web Crawling               |
