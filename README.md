@@ -1,4 +1,4 @@
-## YBIGTA DA Senior Project
+## YBIGTA 2023 DA Senior Project
 # 훈장님: 훈수의 장인이 글에 훈수 두는 서비스
 # Hunjangnim: Advice for Writing
 
